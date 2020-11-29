@@ -5,7 +5,7 @@ ENV GITHUB_PAT ""
 ENV GITHUB_OWNER ""
 ENV GITHUB_REPOSITORY ""
 ENV RUNNER_WORKDIR "_work"
-ENV RUNNER_LABELS ""
+ENV RUNNER_LABEL ""
 
 RUN apt-get update \
     && apt-get install -y \
