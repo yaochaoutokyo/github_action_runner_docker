@@ -13,11 +13,24 @@ RUN apt-get update \
         sudo \
         git \
         jq \
-    && apt-get clean \
+        python3 \
+        python3-nacl \
+        python3-pip \
+        libffi-dev \
+        iputils-ping \
+        net-tools \
+        unzip \
+# install ansible
+RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
+    && pip3 install ansible \
     && useradd -m github \
     && usermod -aG sudo github \
     && echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# install terraform
+RUN curl -O -J -L https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip \
+    && unzip terraform_0.13.4_linux_amd64.zip && rm -rf ./terraform_0.13.4_linux_amd64.zip \
+    && mv terraform /usr/local/bin/terraform
 
 USER github
 WORKDIR /home/github
