@@ -13,10 +13,10 @@ $ docker run -d --name <runner_name> \
     -e GITHUB_PAT=<owner_personal_access_token> \
     -e RUNNER_LABEL=<runner_label> 
     --restart=always github_action_runner:v0.1
-```
 
 Variables:
-GITHUB_REPOSITORY: name of github repository which the runner is attached to
-GITHUB_OWNER: github account name of the owner of the repository
-GITHUB_PAT: personal access token of the github account
-RUNNER_LABEL: label of the runner
+- GITHUB_REPOSITORY: name of github repository which the runner is attached to
+- GITHUB_OWNER: github account name of the owner of the repository
+- GITHUB_PAT: personal access token of the github account
+- RUNNER_LABEL: label of the runner
+```
